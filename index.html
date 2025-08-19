@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light" />
+  <title>Gokul — Links</title>
+
+  <!-- Favicon & app icons (using your avatar.png) -->
+  <link rel="icon" href="avatar.png" sizes="32x32" type="image/png" />
+  <link rel="icon" href="avatar.png" sizes="192x192" type="image/png" />
+  <link rel="apple-touch-icon" href="avatar.png" />
+  <meta name="apple-mobile-web-app-title" content="Gokul" />
+  <meta name="theme-color" content="#0a1e34" />
+
+  <!-- Social preview -->
+  <meta property="og:title" content="Gokul — Links" />
+  <meta property="og:description" content="Follow me on Letterboxd, VSCO, and Instagram." />
+  <meta property="og:image" content="avatar.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:#eaf2ff;
+      background: radial-gradient(1200px 600px at 10% 0%, #0f2b4f 0%, #0a1e34 45%, #0a1726 100%);
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      gap:20px; text-align:center; padding:16px;
+    }
+
+    .wrap{
+      width:min(92vw,560px);
+      border-radius:26px;
+      padding:28px 22px 32px;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.12);
+      box-shadow:0 20px 50px rgba(0,0,0,.45);
+      backdrop-filter:blur(20px) saturate(120%);
+      -webkit-backdrop-filter:blur(20px) saturate(120%);
+    }
+
+    .avatar{
+      width:168px;height:168px;margin:8px auto 22px;border-radius:50%;overflow:hidden;
+      border:2px solid rgba(255,255,255,0.45);
+      background:rgba(255,255,255,.04);
+      backdrop-filter:blur(8px) saturate(120%);
+      -webkit-backdrop-filter:blur(8px) saturate(120%);
+    }
+    .avatar img{width:100%;height:100%;display:block;object-fit:cover;object-position:center;-webkit-user-drag:none;}
+
+    .links{display:grid;gap:16px;}
+    .link{
+      display:flex;align-items:center;justify-content:center;
+      min-height:56px;padding:14px 18px;border-radius:16px;text-decoration:none;
+      color:#fff;font-weight:500;letter-spacing:.15px;
+      background:rgba(255,255,255,0.07);
+      border:1px solid rgba(255,255,255,0.16);
+      backdrop-filter:blur(16px) saturate(125%);
+      -webkit-backdrop-filter:blur(16px) saturate(125%);
+      background-clip:padding-box;
+      box-shadow:0 8px 22px rgba(0,0,0,.30);
+      transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+    }
+    .link:hover{transform:translateY(-1px);border-color:rgba(255,255,255,0.20);box-shadow:0 10px 26px rgba(0,0,0,.36);}
+    .link:active{transform:scale(.988);}
+
+    @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)){
+      .wrap{background:rgba(255,255,255,.04);}
+      .link{background:rgba(255,255,255,.10);}
+      .avatar{background:rgba(255,255,255,.06);}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .link{transition:none;}
+      .link:hover,.link:active{transform:none;}
+    }
+
+    .foot{opacity:.9;text-shadow:0 1px 0 rgba(0,0,0,.35);font-size:1rem;}
+  </style>
+</head>
+<body>
+  <main class="wrap" role="main">
+    <div class="avatar">
+      <img src="avatar.png" alt="Profile photo">
+    </div>
+
+    <nav class="links" aria-label="Social links">
+      <a class="link" href="https://letterboxd.com/2x7ry/" target="_blank" rel="noopener noreferrer">Letterboxd</a>
+      <a class="link" href="https://vs.co/1iqexfcy" target="_blank" rel="noopener noreferrer">VSCO</a>
+      <a class="link" href="https://www.instagram.com/2x7ry" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </nav>
+  </main>
+
+  <!-- outside of the glass box -->
+  <p class="foot">நன்றி மீண்டும் வருக!</p>
+</body>
+</html>

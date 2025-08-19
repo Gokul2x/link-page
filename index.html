@@ -21,15 +21,15 @@
   <meta name="twitter:card" content="summary" />
 
   <style>
-    *,*::before,*::after{box-sizing:border-box;}
-    html,body{height:100%;}
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
       color:#eaf2ff;
-      background: radial-gradient(1200px 600px at 10% 0%, #0f2b4f 0%, #0a1e34 45%, #0a1726 100%);
-      display:flex; flex-direction:column; align-items:center; justify-content:center;
-      gap:20px; text-align:center; padding:16px;
+      background:radial-gradient(1200px 600px at 10% 0%,#0f2b4f 0%,#0a1e34 45%,#0a1726 100%);
+      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;text-align:center;padding:16px;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
 
     .wrap{
@@ -50,36 +50,58 @@
       backdrop-filter:blur(8px) saturate(120%);
       -webkit-backdrop-filter:blur(8px) saturate(120%);
     }
-    .avatar img{width:100%;height:100%;display:block;object-fit:cover;object-position:center;-webkit-user-drag:none;}
+    .avatar img{width:100%;height:100%;display:block;object-fit:cover;object-position:center;-webkit-user-drag:none}
 
-    .links{display:grid;gap:16px;}
+    .links{display:grid;gap:16px}
+
+    /*
+      Cross‑platform, iOS‑safe glass buttons
+      - Darker base background improves contrast on iOS Safari where blur is heavier
+      - Text shadow helps keep white text readable over bright photos
+    */
     .link{
+      position:relative;
       display:flex;align-items:center;justify-content:center;
       min-height:56px;padding:14px 18px;border-radius:16px;text-decoration:none;
-      color:#fff;font-weight:500;letter-spacing:.15px;
-      background:rgba(255,255,255,0.07);
+      color:#fff;font-weight:600;letter-spacing:.15px;
+      background:rgba(13,25,45,0.50); /* darker, neutral base */
       border:1px solid rgba(255,255,255,0.16);
       backdrop-filter:blur(16px) saturate(125%);
       -webkit-backdrop-filter:blur(16px) saturate(125%);
       background-clip:padding-box;
       box-shadow:0 8px 22px rgba(0,0,0,.30);
-      transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+      text-shadow:0 1px 2px rgba(0,0,0,.7);
+      transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease, background .16s ease;
     }
-    .link:hover{transform:translateY(-1px);border-color:rgba(255,255,255,0.20);box-shadow:0 10px 26px rgba(0,0,0,.36);}
-    .link:active{transform:scale(.988);}
+    .link:hover{transform:translateY(-1px);border-color:rgba(255,255,255,0.22);box-shadow:0 10px 26px rgba(0,0,0,.36)}
+    .link:active{transform:scale(.988)}
 
+    /* Focus ring for accessibility */
+    .link:focus-visible{outline:2px solid #7db3ff;outline-offset:3px}
+
+    /*
+      Fallback when backdrop-filter is unsupported
+    */
     @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)){
-      .wrap{background:rgba(255,255,255,.04);}
-      .link{background:rgba(255,255,255,.10);}
-      .avatar{background:rgba(255,255,255,.06);}
+      .wrap{background:rgba(255,255,255,.04)}
+      .link{background:rgba(13,25,45,0.65)}
+      .avatar{background:rgba(255,255,255,.06)}
+    }
+
+    /*
+      iOS Safari specific tweak: it tends to over-blur and wash out light layers.
+      Use a darker base just on iOS to keep contrast consistent.
+    */
+    @supports (-webkit-touch-callout: none){
+      .link{background:rgba(13,25,45,0.62)}
     }
 
     @media (prefers-reduced-motion: reduce){
-      .link{transition:none;}
-      .link:hover,.link:active{transform:none;}
+      .link{transition:none}
+      .link:hover,.link:active{transform:none}
     }
 
-    .foot{opacity:.9;text-shadow:0 1px 0 rgba(0,0,0,.35);font-size:1rem;}
+    .foot{opacity:.9;text-shadow:0 1px 0 rgba(0,0,0,.35);font-size:1rem}
   </style>
 </head>
 <body>
